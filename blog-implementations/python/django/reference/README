@@ -3,4 +3,13 @@ Reference Implementation
 
 Based on/Copied from the blog in django basic apps.
 
-by Richard Warburton
+Dependencies
+------------
+
+Django Tagging (http://code.google.com/p/django-tagging)
+BeautifulSoup (http://www.crummy.com/software/BeautifulSoup/)
+
+Maintainer
+----------
+
+Richard Warburton
