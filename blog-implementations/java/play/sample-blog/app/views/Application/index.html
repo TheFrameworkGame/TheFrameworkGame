@@ -1,4 +1,26 @@
 #{extends 'main.html' /}
-#{set title:'Home' /}
+#{set title:'The Framework Game' /}
 
-#{welcome /}
+#{if posts}
+	#{list items:posts, as:'post'}
+	    <div class="post">
+	        <h2 class="post-title">
+	            <a href="#">${post.title}</a>
+	        </h2>
+	        <div class="post-metadata">
+	            <span class="post-author">
+	                by ${post.author.fullname}
+	            </span>
+	            <span class="post-date">
+	                ${post.postedAt.format('dd MMM yy')}
+	            </span>
+	        </div>
+	    </div>
+	#{/list}
+#{/if}
+
+#{else}
+    <div class="empty">
+        There is currently nothing to read here.
+    </div>
+#{/else}

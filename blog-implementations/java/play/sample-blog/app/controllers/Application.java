@@ -1,16 +1,14 @@
 package controllers;
 
-import play.*;
-import play.mvc.*;
+import java.util.List;
 
-import java.util.*;
-
-import models.*;
+import models.Post;
+import play.mvc.Controller;
 
 public class Application extends Controller {
 
-    public static void index() {
-        render();
-    }
-
+	public static void index() {
+		List<Post> posts = Post.find("order by postedAt desc").fetch(10);
+		render(posts);
+	}
 }
