@@ -20,13 +20,23 @@
 			<div class="container">
 			<ul class="nav">
             	<li class="active"><a href="/">home</a></li>
+            	<li ><a href="@{CRUD.index}">admin</a></li>
             </ul>
-				<form action="" class="pull-right">
-					<input class="input-small" type="text" placeholder="username">
+            <ul class="nav secondary-nav">
+            	#{if user}
+            		<li><a href="@{Secure.logout}">logout from ${user}</a></li>
+            	#{/if}
+            	#{else}
+            		<li><a href="@{Secure.login}">login</a></li>
+            	#{/else}
+           	</ul>
 
-					<input class="input-small" type="password" placeholder="password">
-					<button class="btn" type="submit">Sign in</button>
-				</form>
+<!-- 				<form action="" class="pull-right"> -->
+<!-- 					<input class="input-small" type="text" placeholder="username"> -->
+
+<!-- 					<input class="input-small" type="password" placeholder="password"> -->
+<!-- 					<button class="btn" type="submit">Sign in</button> -->
+<!-- 				</form> -->
 			</div>
 		</div>
 	</div>
