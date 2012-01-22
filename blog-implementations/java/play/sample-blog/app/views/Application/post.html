@@ -24,6 +24,11 @@
 		<h2>
 			<a href="#">${post.title}</a>
 		</h2>
+		
+		#{if flash.success}
+    		<p class="success">${flash.success}</p>
+		#{/if}
+		
 		<span class="post-author"> by ${post.author.fullname} </span>
 		<div class="post-body">${post.content}</div>
 	</div>
@@ -45,22 +50,29 @@
 		#{form @Application.addCommentToPost(post.id)}
 		<fieldset>
 			<legend>Post a comment</legend>
+			
+			#{ifErrors}
+		      <div class="clearfix error">
+		          All fields are required!
+		      </div>
+			#{/ifErrors}
+			
 		    <div class="clearfix">
 		        <label for="author">Your name: </label>
 		        <div class="input">
-		        	<input type="text" name="author" id="author" />
+		        	<input type="text" name="author" id="author" value="${params.author}" />
 	        	</div>
 		    </div>
 		    <div class="clearfix">
 		        <label for="email">Your Email Address: </label>
 		        <div class="input">
-		        	<input type="text" name="email" id="email" />
+		        	<input type="text" name="email" id="email"  value="${params.email}" />
 	        	</div>
 		    </div>
 		    <div class="clearfix">
 		        <label for="content">Your message: </label>
 		        <div class="input">
-		        	<textarea name="content" id="content"></textarea>
+		        	<textarea name="content" id="content">${params.content}</textarea>
 		        </div>
 		    </div>
 		    <div class="actions">

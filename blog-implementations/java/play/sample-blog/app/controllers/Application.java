@@ -3,15 +3,20 @@ package controllers;
 import java.util.List;
 
 import models.Post;
+import play.data.validation.Required;
 import play.mvc.Controller;
 
 public class Application extends Controller {
 
-	public static void addCommentToPost(final Long postId, final String author,
-			final String content, final String email) {
+	public static void addCommentToPost(@Required final Long postId,
+			@Required final String author, @Required final String content,
+			@Required final String email) {
 		Post post = Post.findById(postId);
-		post.withComment(author, content, email);
-		post(postId);
+		if (!validation.hasErrors()) {
+			post.withComment(author, content, email);
+			flash.success("Thanks for posting %s", author);
+		}
+		render("Application/post.html", post);
 	}
 
 	public static void index() {
