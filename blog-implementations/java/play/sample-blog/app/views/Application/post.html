@@ -1,0 +1,20 @@
+#{extends 'main.html' /} #{set title:'The Framework Game' /}
+
+<div class="row">
+	<div class="span14">
+		<h2>
+			<a href="#">${post.title}</a>
+		</h2>
+		<span class="post-author"> by ${post.author.fullname} </span>
+		<div class="post-body">${post.content}</div>
+	</div>
+</div>
+
+#{list items:post.comments, as:'comment'}
+	<div class="row">
+		<div class="span14">
+		<div class="post-body">${comment.content}</div>
+		<span class="post-author"> by ${comment.author} @ ${comment.postedAt}</span>
+		</div>
+	</div>
+#{/list}
