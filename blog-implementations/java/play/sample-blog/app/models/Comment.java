@@ -6,18 +6,26 @@ import javax.persistence.Entity;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 
+import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
 public class Comment extends Model {
 
+    @Required
 	public String author;
+    
+    @Required
 	public String email;
+    
+    @Required
 	public Date postedAt;
 
+    @Required
 	@Lob
 	public String content;
 
+    @Required
 	@ManyToOne
 	public Post post;
 
@@ -29,6 +37,11 @@ public class Comment extends Model {
 		// TODO: validate email
 		this.email = email;
 		postedAt = new Date();
+	}
+	
+	@Override
+	public String toString() {
+		return author + " @ " +postedAt;
 	}
 
 }

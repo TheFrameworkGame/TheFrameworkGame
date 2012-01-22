@@ -3,13 +3,20 @@ package models;
 import java.util.*;
 import javax.persistence.*;
  
+import play.data.validation.Email;
+import play.data.validation.Required;
 import play.db.jpa.*;
  
 @Entity
 public class User extends Model {
  
+	@Email
+	@Required
     public String email;
+	
+	@Required
     public String password;
+	
     public String fullname;
     
     public User(String email, String password, String fullname) {
@@ -22,4 +29,8 @@ public class User extends Model {
         return find("byEmailAndPassword", email, password).first();
     }
  
+    @Override
+    public String toString() {
+    	return email;
+    }
 }

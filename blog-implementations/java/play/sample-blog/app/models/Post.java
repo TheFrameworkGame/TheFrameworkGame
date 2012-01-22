@@ -13,6 +13,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
+import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
@@ -24,22 +25,30 @@ public class Post extends Model {
 						name).fetch();
 	}
 
+    @Required
 	public String title;
 
+    @Required
 	public String slug;
 
+    @Required
 	public boolean isPublished;
 
+    @Required
 	public boolean hasComments;
 
+    @Required
 	public Date postedAt;
 
+    @Required
 	@Lob
 	public String content;
 
+    @Required
 	@Lob
 	public String tease;
 
+    @Required
 	@ManyToOne
 	public User author;
 
@@ -92,4 +101,8 @@ public class Post extends Model {
 		return this;
 	}
 
+	@Override
+	public String toString() {
+		return title;
+	}
 }

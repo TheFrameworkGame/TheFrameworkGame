@@ -6,6 +6,7 @@ import javax.persistence.Entity;
 
 import org.hibernate.mapping.Map;
 
+import play.data.validation.Required;
 import play.db.jpa.Model;
 
 @Entity
@@ -26,6 +27,7 @@ public class Category extends Model implements Comparable<Category> {
 		return result;
 	}
 
+    @Required
 	public String name;
 
 	private Category(final String name) {
