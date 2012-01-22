@@ -29,7 +29,15 @@
     		<p class="success">${flash.success}</p>
 		#{/if}
 		
-		<span class="post-author"> by ${post.author.fullname} </span>
+		<span class="post-author">
+			by ${post.author.fullname}
+			#{if post.categories}
+		        - in 
+		        #{list items:post.categories, as:'category'}
+		            <a href="#">${category}</a>${category_isLast ? '' : ', '}
+		        #{/list}
+			#{/if}
+		</span>
 		<div class="post-body">${post.content}</div>
 	</div>
 </div>

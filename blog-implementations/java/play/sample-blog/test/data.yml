@@ -7,6 +7,19 @@ User(jeff):
     email:          jeff@gmail.com
     password:       secret
     fullname:       Jeff    
+                 
+Category(play):
+    name:           Play
+ 
+Category(architecture):
+    name:           Architecture
+ 
+Category(test):
+    name:           Test
+ 
+Category(mvc):
+    name:           MVC
+
     
 Post(firstBobPost):
     title:          About the model layer
@@ -47,6 +60,10 @@ Post(jeffPost):
                     View and a Controller layer.
     tease:          A Play! application follows the MVC architectural pattern.
     hasComments:    true
+    categories:
+                    - play
+                    - architecture
+                    - mvc
 
 Comment(c1):
     author:         Guest
@@ -68,4 +85,3 @@ Comment(c3):
                     This post is useless ?
     postedAt:       2009-04-05
     post:           secondBobPost    
-                 
