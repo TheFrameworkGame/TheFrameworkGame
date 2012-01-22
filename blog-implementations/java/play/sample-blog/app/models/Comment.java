@@ -21,10 +21,13 @@ public class Comment extends Model {
 	@ManyToOne
 	public Post post;
 
-	public Comment(final Post post, final String author, final String content) {
+	public Comment(final Post post, final String author, final String content,
+			final String email) {
 		this.post = post;
 		this.author = author;
 		this.content = content;
+		// TODO: validate email
+		this.email = email;
 		postedAt = new Date();
 	}
 

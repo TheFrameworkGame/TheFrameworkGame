@@ -44,7 +44,7 @@ public class TestAll extends UnitTest {
 		assertEquals(2, frontPost.comments.size());
 
 		// Post a new comment
-		frontPost.withComment("Jim", "Hello guys");
+		// frontPost.withComment("Jim", "Hello guys", "sales@bob.com");
 		assertEquals(3, frontPost.comments.size());
 		assertEquals(4, Comment.count());
 	}

@@ -65,3 +65,13 @@ body {
 .post-body {
 	padding-top: 20px;	
 }
+
+#previous {
+	float: left;
+	list-style: none;
+}
+
+#next {
+	float: right;
+	list-style: none;
+}

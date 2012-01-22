@@ -50,12 +50,23 @@ public class Post extends Model {
 		hasComments = true;
 	}
 
-	public Post withComment(final String author, final String content) {
+	public Post next() {
+		return Post.find("postedAt > ? order by postedAt asc", postedAt)
+				.first();
+	}
+
+	public Post previous() {
+		return Post.find("postedAt < ? order by postedAt desc", postedAt)
+				.first();
+	}
+
+	public Post withComment(final String author, final String content,
+			final String email) {
 		if (!hasComments) {
 			throw new IllegalStateException("No comments for post");
 		}
 
-		Comment newComment = new Comment(this, author, content).save();
+		Comment newComment = new Comment(this, author, content, email).save();
 		comments.add(newComment);
 		this.save();
 		return this;

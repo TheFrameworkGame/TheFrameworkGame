@@ -22,8 +22,8 @@ public class TestComment extends UnitTest {
 		Post bobPost = new Post(bob, "My first post", "Hello world", "hello")
 				.save();
 
-		bobPost.withComment("Jeff", "Nice post");
-		bobPost.withComment("Tom", "I knew that !");
+		bobPost.withComment("Jeff", "Nice post", "sales@bob.com");
+		bobPost.withComment("Tom", "I knew that !", "sales@bob.com");
 
 		// Count things
 		assertEquals(1, User.count());
